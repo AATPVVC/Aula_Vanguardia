@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.header {
+    background-color: #1E3A5F;
+    color: white;
+    padding: 40px;
+}
+
+.menu {
+    background-color: #2C5282;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #2C5282;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.boton:hover {
+    background-color: #335f96;
+}
