@@ -3,29 +3,53 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #177bcc;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.664);
+    padding: 20px 50px;
+    height: 170px;
+    width: 1765px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.logito {
+    height: 100px;
+    width: 100px;
+    border-radius: 25%;
+}
+.logo {
+    color: rgb(245, 241, 241);
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+
+.titulo{
+    padding: 100px 350px;
+    font-size: 20px;
     text-align: center;
 }
-
-.header {
-    background-color: #1E3A5F;
+.boton{
+    background-color: rgb(104, 187, 255);
     color: white;
-    padding: 40px;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 20%;
+    border: none;
+    transition: color 0,3s ease;
 }
 
-.menu {
-    background-color: #2C5282;
-}
-
-.boton {
-    display: inline-block;
-    background-color: #2C5282;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-.boton:hover {
-    background-color: #335f96;
+.boton:hover{
+    color: red;
 }
