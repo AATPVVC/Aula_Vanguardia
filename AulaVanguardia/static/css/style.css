@@ -17,52 +17,53 @@ body {
 .navbar {
     background-color: #177bcc;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.664);
-    padding: 20px 50px;
+    padding: 0px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1350px;
+    height: 100px;
 }
 .nav-links {
     display: flex;
     gap: 20px;
 }
 .logito {
+    padding: 10px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
 }
 .logo {
-    color: rgb(245, 241, 241);
-    font-size: 1.5rem;
-    font-weight: 200;
+    padding: 0px 25px;
 }
 
 .container {
     display: flex;
-    padding: 50px 50px;
-    height: 750px;
+    height: 550px;
     flex-direction: column;
+    justify-content: center;
 }
 
 .titulo {
     display: flex;
-    height: 130px;
-    padding: 40px;
+    padding: 0px 15px;
+    padding: 20px;
     flex-direction: column;
     text-align: center;
     background-color:#B69D54;
     color: #ffffff;
-    border-radius: 2%;
+    border-radius: 1%;
     font-size: 15px;
+    width: 1320px;
+    height: 140px;
 }
 .boton{
     text-decoration: none;
-    display: inline-block; 
     padding: 12px 24px; 
     background-color:#B69D54;
     color: white        ;
     font-size: 16px;
-    font-weight: 600;
     border-radius: 6px; 
     transition: background-color 0.8s ease;
 }
@@ -71,11 +72,29 @@ body {
     color: rgb(214, 214, 213);
 }
 .contenedor_tarjetas{
+    display: flex;
    text-align: center;
    padding: 20px;
+   
  }
 .box {
-   display: inline-block;
+   width: 300px;
+   height: 200px;
+   background-color:#177BCC ;
+   color: white;
+   margin: 10px;
+   padding: 20px;
+   border-radius: 10px;
+}
+.Primero {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.boxes {
+    display: inline-block;
    width: 300px;
    height: 200px;
    background-color:#177BCC ;
@@ -83,4 +102,5 @@ body {
    margin: 10px;
    padding: 10px;
    border-radius: 10px;
+   flex-direction: row;
 }
