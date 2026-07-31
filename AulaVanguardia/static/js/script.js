@@ -1,8 +1,9 @@
-console.log(`Conexion...`)
+console.log("Conexión...");
 
 function cambioIngles() {
-   alert("translating to inglish...")
+    alert("Translating to English...");
 }
-function cambioEspañol() {
-    alert("Traduciendo a Español")
+
+function cambioEspanol() {
+    alert("Traduciendo a Español...");
 }
