@@ -1,44 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Aula Vanguardia" />
-    <title>Main Page - Aula Vanguardia</title>
 
-    <link rel="stylesheet" href="../static/css/en.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Aula Vanguardia" />
+  <title>Main Page - Aula Vanguardia</title>
 
-  <body>
-    <nav class="navbar">
-      <div class="logo">
-        <img
-          src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png"
-          alt="Aula Vanguardia Logo"
-          class="logito"
-        />
+  <link rel="stylesheet" href="../static/css/en.css" />
+</head>
+<video autoplay loop muted playsinline class="video-fondo">
+  <source src="../static/videos/Fondo tecnológico en 4K (1).mp4" type="video/mp4" />
+  Tu navegador no soporta videos HTML5.
+</video>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png" alt="Aula Vanguardia Logo"
+        class="logito" />
+    </div>
+    <h1 style="color: azure; font-size: 50px">Aula Vanguardia</h1>
+
+    <div class="nav-links">
+      <a href="soluciones_en.html" class="boton">Solutions</a>
+
+      <a onclick="cambioEspanol()" href="../index.html" class="boton">Español</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <div class="titulo">
+      <h1>
+        School Safety: An Ecosystem of Prevention, Participation, and
+        Resilience for Holistic Education
+      </h1>
+      <p>Safe School: Prevention That Protects, Action That Educates.</p>
+    </div>
+    <section class="Primero">
+      <h2>ODS Seleccionadas</h2>
+      <div class="contenedor_tarjetas">
+        <div class="box">
+          <h3>(SDG 3) Good Health and Well-being:</h3>
+          <p>
+            To ensure a healthy life and promote well-being for all people of
+            all ages within the educational community.
+          </p>
+        </div>
+        <div class="box">
+          <h3>(SDG 4) Quality Education:</h3>
+          <p>
+            Ensure inclusive, equitable, and high-quality education, promoting
+            lifelong learning opportunities.
+          </p>
+        </div>
       </div>
-      <h1 style="color: azure; font-size: 50px">Aula Vanguardia</h1>
+    </section>
+  </main>
 
-      <div class="nav-links">
-        <a href="soluciones_en.html" class="boton">Solutions</a>
+  <script src="../static/js/en.js"></script>
+</body>
 
-        <a onclick="cambioEspanol()" href="../index.html" class="boton"
-          >Español</a
-        >
-      </div>
-    </nav>
-
-    <main class="container">
-      <div class="titulo">
-        <h1>
-          School Safety: An Ecosystem of Prevention, Participation, and
-          Resilience for Holistic Education
-        </h1>
-        <p>Safe School: Prevention That Protects, Action That Educates.</p>
-      </div>
-    </main>
-
-    <script src="../static/js/en.js"></script>
-  </body>
 </html>

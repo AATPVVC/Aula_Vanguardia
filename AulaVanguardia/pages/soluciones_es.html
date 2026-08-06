@@ -1,92 +1,72 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Aula Vanguardia" />
-    <title>Soluciones - Aula Vanguardia</title>
 
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Aula Vanguardia" />
+  <title>Soluciones - Aula Vanguardia</title>
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
 
-  <body>
-    <nav class="navbar">
-      <div class="logo">
-        <img
-          src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png"
-          alt="Logo Aula Vanguardia"
-          class="logito"
-        />
-      </div>
-      <h1 style="color: azure; font-size: 50px">Aula Vanguardia</h1>
+<body>
+  <!-- Video de fondo ubicado a nivel principal -->
+  <video autoplay loop muted playsinline class="video-fondo">
+    <source src="../static/videos/Fondo tecnológico en 4K (1).mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
 
-      <div class="nav-links">
-        <a href="../index.html" class="boton">Inicio</a>
+  <!-- Navbar estructurado correctamente -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png" alt="Logo Aula Vanguardia" class="logito" />
+    </div>
+    <h1>Aula Vanguardia</h1>
+    <div class="nav-links">
+      <a href="../index.html" class="boton">Inicio</a>
+      <a href="soluciones_es.html" class="boton">Soluciones</a>
+      <a onclick="cambioIngles()" href="soluciones_en.html" class="boton">Inglés</a>
+    </div>
+  </nav>
 
-        <a href="soluciones_es.html" class="boton">Soluciones</a>
-
-        <a onclick="cambioIngles()" href="soluciones_en.html" class="boton"
-          >Inglés</a
-        >
-      </div>
-    </nav>
-
-    <main class="container">
-      <h2>Propuestas de Seguridad Escolar: Soluciones</h2>
-
-      <section>
-        <div class="contenedor_tarjetas">
-          <div class="box">
-            <h3>1. Control de acceso:</h3>
-            <p>
-              Instalación de detectores de metales en la entrada para evitar el
-              ingreso de armas.
-            </p>
-          </div>
-          <div class="box">
-            <h3>2. App de comunicación y rastreo:</h3>
-            <p>
-              Permite a los apoderados monitorear la ubicación de los alumnos,
-              la asistencia al colegio y recibir reportes de peleas.
-            </p>
-          </div>
-          <div class="box">
-            <h3>3. Mapeo de riesgo:</h3>
-            <p>
-              Incluye una sección en la app con un mapa de zonas rojas donde
-              ocurren más conflictos.
-            </p>
-          </div>
+  <main class="container">
+    <h2>Propuestas de Seguridad Escolar: Soluciones</h2>
+    <section>
+      <div class="contenedor_tarjetas">
+        <div class="box">
+          <h3>1. Control de acceso:</h3>
+          <p>Instalación de detectores de metales en la entrada para evitar el ingreso de armas.</p>
         </div>
-      </section>
-
-      <section>
-        <div class="contenedor_tarjetas">
-          <div class="box">
-            <h3>4. Detección automática:</h3>
-            <p>
-              Notificación instantánea a docentes e inspectores cuando las
-              cámaras detecten violencia.
-            </p>
-          </div>
-          <div class="box">
-            <h3>5. Botones de pánico biométricos:</h3>
-            <p>
-              Alertas rápidas activadas por huella digital para registrar el
-              horario y quién reporta la pelea.
-            </p>
-          </div>
-          <div class="box">
-            <h3>6. Resguardo en botones:</h3>
-            <p>
-              Cámaras dedicadas sobre los botones de pánico para verificar la
-              autenticidad del reporte.
-            </p>
-          </div>
+        <div class="box">
+          <h3>2. App de comunicación y rastreo:</h3>
+          <p>Permite a los apoderados monitorear la ubicación de los alumnos, la asistencia al colegio y recibir reportes de peleas.</p>
         </div>
-      </section>
-    </main>
+        <div class="box">
+          <h3>3. Mapeo de riesgo:</h3>
+          <p>Incluye una sección en la app con un mapa de zonas rojas donde ocurren más conflictos.</p>
+        </div>
+      </div>
+    </section>
 
-    <script src="../static/js/script.js"></script>
-  </body>
+    <section>
+      <div class="contenedor_tarjetas">
+        <div class="box">
+          <h3>4. Detección automática:</h3>
+          <p>Notificación instantánea a docentes e inspectores cuando las cámaras detecten violencia.</p>
+        </div>
+        <div class="box">
+          <h3>5. Botones de pánico biométricos:</h3>
+          <p>Alertas rápidas activadas por huella digital para registrar el horario y quién reporta la pelea.</p>
+        </div>
+        <div class="box">
+          <h3>6. Resguardo en botones:</h3>
+          <p>Cámaras dedicadas sobre los botones de pánico para verificar la autenticidad del reporte.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../static/js/script.js"></script>
+</body>
+
 </html>
