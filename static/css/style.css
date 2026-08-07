@@ -1,3 +1,6 @@
+/* ==========================================
+   RESET Y ESTILOS GLOBALES
+   ========================================== */
 * {
     padding: 0;
     margin: 0;
@@ -5,46 +8,62 @@
     font-family: 'Poppins', Arial, sans-serif;
 }
 
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita cualquier barra de desplazamiento horizontal */
+}
+
 body {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    min-height: 100vh;
+    position: relative;
 }
 
+/* VIDEO DE FONDO (Corregido 100vw -> 100%) */
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================== */
 .navbar {
     position: relative;
     background-color: rgba(23, 123, 204, 0.9);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    padding: 10px 40px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     min-height: 90px;
     border-bottom: 3px solid #B69D54;
+    z-index: 10;
 }
 
-/* NAVBAR */
-.navbar h1,
-.titulo-navbar {
-    position: static;
-    transform: none;
-    color: azure;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    white-space: nowrap;
-    margin: 0 20px; /* Separación mínima asegurada con el logo y los botones */
-    text-align: center;
+/* Agrupación opcional de Logo + Título */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    z-index: 2;
 }
+
 .logo {
     display: flex;
     align-items: center;
     z-index: 2;
-    /* Mantiene el logo por encima */
 }
 
 .logito {
@@ -61,24 +80,51 @@ body {
     transform: rotate(360deg) scale(1.05);
 }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    z-index: 2;
-    /* Mantiene los botones por encima */
-}
-/*                                                                      */
-.video-fondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
+.navbar h1,
+.titulo-navbar {
+    color: azure;
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem); /* Tamaño dinámico adaptable */
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
 }
 
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 2;
+}
+
+/* BOTONES ESTILO PÍLDORA */
+.boton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.boton:hover {
+    background: linear-gradient(135deg, #967f3f 0%, #78642e 100%);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5);
+}
+
+/* ==========================================
+   ESTRUCTURA PRINCIPAL Y CONTENIDOS
+   ========================================== */
 .container {
     display: flex;
     flex-direction: column;
@@ -86,6 +132,7 @@ body {
     align-items: center;
     padding: 40px 20px;
     gap: 30px;
+    width: 100%;
 }
 
 .titulo {
@@ -117,40 +164,20 @@ body {
 }
 
 .titulo h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .titulo p {
-    font-size: 1.15rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     font-style: italic;
     opacity: 0.95;
 }
 
-/* BOTONES REDONDEADOS TIPO PÍLDORA CON RESPLANDOR */
-.boton {
-    text-decoration: none;
-    display: inline-block;
-    padding: 12px 26px;
-    background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.boton:hover {
-    background: linear-gradient(135deg, #967f3f 0%, #78642e 100%);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5);
-}
-
-/* SECCIÓN Y TARJETAS FLOTANTES CON DETALLE DORADO */
+/* ==========================================
+   SECCIÓN DE TARJETAS (ODS)
+   ========================================== */
 .Primero {
     display: flex;
     justify-content: center;
@@ -162,31 +189,30 @@ body {
 
 .Primero h2 {
     color: #ffffff;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(80, 48, 48, 0.5);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .contenedor_tarjetas {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 25px;
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
     max-width: 1200px;
 }
-
-
 
 .box,
 .boxes {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 310px;
+    max-width: 100%;
     min-height: 190px;
     background: linear-gradient(145deg, #177bcc 0%, #105996 100%);
     color: white;
@@ -218,7 +244,9 @@ body {
     font-size: 0.95rem;
     line-height: 1.5;
     opacity: 0.9;
+    margin-bottom: 10px;
 }
+
 .Ods {
     height: 70px;
     width: 70px;
@@ -226,93 +254,56 @@ body {
     border: 3px solid #B69D54;
     box-shadow: 0 0 10px rgba(182, 157, 84, 0.6);
     transition: transform 0.4s ease;
+    border-radius: 8px;
 }
 
+/* ==========================================
+   MEDIA QUERIES (RESPONSIVIDAD)
+   ========================================== */
+
+
 @media (max-width: 768px) {
-
-    /* 1. Previene el desbordamiento horizontal en pantallas pequeñas */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    /* 2. Reestructuración de la Barra de Navegación */
+    /* 1. Fuerza que la barra se divida en filas verticalmente */
     .navbar {
-        flex-direction: column;
-        padding: 15px 10px;
-        min-height: auto;
-        gap: 15px;
+        flex-direction: column !important;
+        padding: 12px 10px !important;
+        gap: 12px !important;
+        min-height: auto !important;
     }
 
-    .navbar h1,
-    .titulo-navbar {
-        font-size: 1.4rem;
-        margin: 0;
-        white-space: normal; /* Permite que el texto se acomode en dos líneas si es necesario */
-        word-break: break-word;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .boton {
-        padding: 8px 16px;
-        font-size: 14px;
+    /* 2. Reduce y alinea el logo con el título */
+    .logo, .brand-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
     }
 
     .logito {
-        height: 55px;
-        width: 55px;
+        height: 45px !important;
+        width: 45px !important;
     }
 
-    /* 3. Contenedores y Banner Principal */
-    .container {
-        padding: 20px 15px;
-        gap: 20px;
+    /* 3. Tamaño del título en una sola línea */
+    .navbar h1,
+    .titulo-navbar {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
     }
 
-    .titulo {
-        padding: 20px 15px;
+    /* 4. Acomoda los botones abajo bien centrados */
+    .nav-links {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
     }
 
-    .titulo h1 {
-        font-size: 1.3rem;
-    }
-
-    .titulo p {
-        font-size: 0.95rem;
-    }
-
-    .Primero h2 {
-        font-size: 1.4rem;
-    }
-
-    /* 4. Tarjetas y Grilla adaptables */
-    .contenedor_tarjetas {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .box,
-    .boxes {
-        width: 100%;
-        max-width: 100%; /* Ocupa el ancho completo disponible */
-        min-height: auto;
-        padding: 18px;
-    }
-
-    .box h3,
-    .boxes h3 {
-        font-size: 1.1rem;
-    }
-
-    .box p,
-    .boxes p {
-        font-size: 0.9rem;
+    /* 5. Tamaño compacto de los botones */
+    .boton {
+        padding: 6px 14px !important;
+        font-size: 13px !important;
     }
 }

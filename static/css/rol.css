@@ -258,90 +258,47 @@ body {
    ESTILOS RESPONSIVOS PARA TELÉFONOS (MÓVILES)
    ========================================== */
 @media (max-width: 768px) {
-
-    /* 1. Previene el desbordamiento horizontal en pantallas pequeñas */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    /* 2. Reestructuración de la Barra de Navegación */
+    /* 1. Fuerza que la barra se divida en filas verticalmente */
     .navbar {
-        flex-direction: column;
-        padding: 15px 10px;
-        min-height: auto;
-        gap: 15px;
+        flex-direction: column !important;
+        padding: 12px 10px !important;
+        gap: 12px !important;
+        min-height: auto !important;
     }
 
-    .navbar h1,
-    .titulo-navbar {
-        font-size: 1.4rem;
-        margin: 0;
-        white-space: normal; /* Permite que el texto se acomode en dos líneas si es necesario */
-        word-break: break-word;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .boton {
-        padding: 8px 16px;
-        font-size: 14px;
+    /* 2. Reduce y alinea el logo con el título */
+    .logo, .brand-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
     }
 
     .logito {
-        height: 55px;
-        width: 55px;
+        height: 45px !important;
+        width: 45px !important;
     }
 
-    /* 3. Contenedores y Banner Principal */
-    .container {
-        padding: 20px 15px;
-        gap: 20px;
+    /* 3. Tamaño del título en una sola línea */
+    .navbar h1,
+    .titulo-navbar {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
     }
 
-    .titulo {
-        padding: 20px 15px;
+    /* 4. Acomoda los botones abajo bien centrados */
+    .nav-links {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
     }
 
-    .titulo h1 {
-        font-size: 1.3rem;
-    }
-
-    .titulo p {
-        font-size: 0.95rem;
-    }
-
-    .Primero h2 {
-        font-size: 1.4rem;
-    }
-
-    /* 4. Tarjetas y Grilla adaptables */
-    .contenedor_tarjetas {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .box,
-    .boxes {
-        width: 100%;
-        max-width: 100%; /* Ocupa el ancho completo disponible */
-        min-height: auto;
-        padding: 18px;
-    }
-
-    .box h3,
-    .boxes h3 {
-        font-size: 1.1rem;
-    }
-
-    .box p,
-    .boxes p {
-        font-size: 0.9rem;
+    /* 5. Tamaño compacto de los botones */
+    .boton {
+        padding: 6px 14px !important;
+        font-size: 13px !important;
     }
 }
