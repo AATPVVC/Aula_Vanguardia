@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Aula Vanguardia" />
-  <title>Solutions - School Safety</title>
+  <title>Problema - School Safety</title>
 
   <link rel="stylesheet" href="../static/css/en.css" />
 </head>
@@ -18,30 +18,38 @@
   </video>
 
   <!-- Navbar estructurado correctamente -->
-  <nav class="navbar">
+<nav class="navbar">
+  <!-- El logo y título te llevan al Inicio al hacer clic -->
+  <a href="../index.html" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
     <div class="logo">
       <img src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png" alt="Aula Vanguardia Logo" class="logito" />
     </div>
+    <h1 style="color: azure; font-size: 50px; margin: 0;">Aula Vanguardia</h1>
+  </a>
 
-     <h1 style="color: azure; font-size: 50px">Aula Vanguardia</h1>
-
-    <div class="nav-links">
-      <a href="../pages/en.html" class="boton">Homepages</a>
-      <a href="soluciones_en.html" class="boton">Solutions</a>
-      <a onclick="cambioEspanol()" href="problema_es.html" class="boton">Spanish</a>
-    </div>
-  </nav>
+  <!-- Tus 4 botones se quedan tal cual a la derecha -->
+  <div class="nav-links">
+    <a onclick="home()" href="en.html" class="boton">Homepages</a>
+    <a onclick="solucionesEn()" href="soluciones_en.html" class="boton">Solutions</a>
+    <a onclick="rolesEn()" href="roles_en.html" class="boton">Members</a>
+    <a onclick="ProblematicaEn()" href="problema_es.html" class="boton">Spanish</a>
+  </div>
+</nav>
 
   <main class="container">
-    <h2>Problems</h2>
+    <h2 style="color: white;">Problems</h2>
 
     <section>
       <div class="contenedor_tarjetas">
         <div class="box">
           <h3>Physical Violence</h3>
           <p>
-            Although less common than verbal bullying, it is the most visible and most frequently reported
-            due to the immediate risk it poses to students' safety.
+         Although less common than verbal abuse, it is the most visible and most frequently reported
+            due to the immediate risk it poses to students’ safety.
+            As with all forms of violence,
+            the aggressor’s primary goal is not only—or
+            not always—to cause physical pain,
+            but also to limit the other person’s self-determination.
           </p>
         </div>
         <div class="box">
@@ -59,15 +67,18 @@
         <div class="box">
           <h3>Psychological/Emotional (Social) Abuse</h3>
           <p>
-           It almost always goes hand in hand with verbal abuse and tends to be less visible,
-           but it has a profound impact on the victims.
+          It almost always goes hand in hand with verbal abuse and tends to be less visible,
+           but it has a profound impact on victims.
+           It involves undermining a person’s self-esteem through
+           constant criticism, belittling
+           their abilities, insults, and other forms of verbal abuse.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="../static/js/en.js"></script>
+  <script src="../static/js/script.js"></script>
 </body>
 
 </html>

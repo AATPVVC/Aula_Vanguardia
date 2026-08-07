@@ -1,0 +1,347 @@
+/* --- Reseteo básico --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  background-color: #030813; /* Fondo fallback por si falla el video */
+}
+
+/* --- Video de fondo --- */
+.video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.65); /* Oscurece ligeramente el video para mejorar contraste */
+}
+
+/* --- Navbar Superior --- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  
+  /* Azul brillante exacto de la imagen */
+  background-color: rgba(23, 123, 204, 0.95); /* O #177bcc si lo quieres 100% sólido */
+  
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid #B69D54;
+  z-index: 100;
+  min-height: 90px;
+}
+
+/* Contenedor agrupado para Logo + Título */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.logito {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #B69D54;
+  box-shadow: 0 0 10px rgba(182, 157, 84, 0.6);
+  transition: transform 0.4s ease;
+}
+
+.logito:hover {
+  transform: rotate(360deg) scale(1.05);
+}
+
+.navbar-title {
+  position: static;
+  transform: none;
+  color: azure;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+/* --- Botones de Navegación --- */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 2;
+}
+
+.boton {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 26px;
+  background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.boton:hover {
+  background: linear-gradient(135deg, #967f3f 0%, #78642e 100%);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5);
+}
+
+/* --- Contenedor Principal --- */
+.main-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px; /* Compensación por la navbar fija */
+  padding: 20px;
+}
+
+/* --- El Círculo Contenedor --- */
+.team-circle {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+/* --- Las Tarjetas Individuales (Miembros) --- */
+.member-card {
+  position: absolute;
+  width: 120px;
+  text-align: center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  transform-origin: center center;
+  left: calc(50% - 60px); 
+  top: calc(50% - 60px);
+}
+
+/* --- La foto circular --- */
+.photo-container {
+  position: relative;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 3px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background: #111;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Texto con alto contraste sobre video --- */
+.member-info {
+  margin-top: 8px;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.role {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #d1d5db;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* --- Botón Central --- */
+.rotate-btn {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rotate-btn:hover {
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.rotate-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.rotate-btn svg {
+  width: 26px;
+  height: 26px;
+  stroke: #111;
+}
+
+/* --- Botón de Acción Principal --- */
+.action-btn {
+  background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(182, 157, 84, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.action-btn:hover {
+  background: linear-gradient(135deg, #967f3f 0%, #78642e 100%);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(182, 157, 84, 0.6);
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   ESTILOS RESPONSIVOS PARA TELÉFONOS (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+
+    /* 1. Previene el desbordamiento horizontal en pantallas pequeñas */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Reestructuración de la Barra de Navegación */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        min-height: auto;
+        gap: 15px;
+    }
+
+    .navbar h1,
+    .titulo-navbar {
+        font-size: 1.4rem;
+        margin: 0;
+        white-space: normal; /* Permite que el texto se acomode en dos líneas si es necesario */
+        word-break: break-word;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .boton {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .logito {
+        height: 55px;
+        width: 55px;
+    }
+
+    /* 3. Contenedores y Banner Principal */
+    .container {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .titulo {
+        padding: 20px 15px;
+    }
+
+    .titulo h1 {
+        font-size: 1.3rem;
+    }
+
+    .titulo p {
+        font-size: 0.95rem;
+    }
+
+    .Primero h2 {
+        font-size: 1.4rem;
+    }
+
+    /* 4. Tarjetas y Grilla adaptables */
+    .contenedor_tarjetas {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .box,
+    .boxes {
+        width: 100%;
+        max-width: 100%; /* Ocupa el ancho completo disponible */
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .box h3,
+    .boxes h3 {
+        font-size: 1.1rem;
+    }
+
+    .box p,
+    .boxes p {
+        font-size: 0.9rem;
+    }
+}

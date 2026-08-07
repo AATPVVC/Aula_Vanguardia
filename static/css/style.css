@@ -27,20 +27,19 @@ body {
     border-bottom: 3px solid #B69D54;
 }
 
-/* TÍTULO DE LA NAVBAR CENTRADO AL MEDIO */
+/* NAVBAR */
 .navbar h1,
 .titulo-navbar {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
     color: azure;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     white-space: nowrap;
-    /* Evita que el título se rompa en dos líneas */
+    margin: 0 20px; /* Separación mínima asegurada con el logo y los botones */
+    text-align: center;
 }
-
 .logo {
     display: flex;
     align-items: center;
@@ -69,7 +68,7 @@ body {
     z-index: 2;
     /* Mantiene los botones por encima */
 }
-
+/*                                                                      */
 .video-fondo {
     position: fixed;
     top: 0;
@@ -165,7 +164,7 @@ body {
     color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(80, 48, 48, 0.5);
 }
 
 .contenedor_tarjetas {
@@ -178,6 +177,8 @@ body {
     width: 100%;
     max-width: 1200px;
 }
+
+
 
 .box,
 .boxes {
@@ -217,4 +218,101 @@ body {
     font-size: 0.95rem;
     line-height: 1.5;
     opacity: 0.9;
+}
+.Ods {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border: 3px solid #B69D54;
+    box-shadow: 0 0 10px rgba(182, 157, 84, 0.6);
+    transition: transform 0.4s ease;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Previene el desbordamiento horizontal en pantallas pequeñas */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Reestructuración de la Barra de Navegación */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        min-height: auto;
+        gap: 15px;
+    }
+
+    .navbar h1,
+    .titulo-navbar {
+        font-size: 1.4rem;
+        margin: 0;
+        white-space: normal; /* Permite que el texto se acomode en dos líneas si es necesario */
+        word-break: break-word;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .boton {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .logito {
+        height: 55px;
+        width: 55px;
+    }
+
+    /* 3. Contenedores y Banner Principal */
+    .container {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .titulo {
+        padding: 20px 15px;
+    }
+
+    .titulo h1 {
+        font-size: 1.3rem;
+    }
+
+    .titulo p {
+        font-size: 0.95rem;
+    }
+
+    .Primero h2 {
+        font-size: 1.4rem;
+    }
+
+    /* 4. Tarjetas y Grilla adaptables */
+    .contenedor_tarjetas {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .box,
+    .boxes {
+        width: 100%;
+        max-width: 100%; /* Ocupa el ancho completo disponible */
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .box h3,
+    .boxes h3 {
+        font-size: 1.1rem;
+    }
+
+    .box p,
+    .boxes p {
+        font-size: 0.9rem;
+    }
 }
