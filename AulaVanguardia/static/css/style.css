@@ -77,7 +77,6 @@ body {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    /* Ajusta el video para llenar la pantalla sin estirarse */
     z-index: -1;
 }
 
