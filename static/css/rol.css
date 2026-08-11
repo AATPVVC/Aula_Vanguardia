@@ -13,7 +13,8 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  background-color: #030813; /* Fondo fallback por si falla el video */
+  background-color: #030813;
+  /* Fondo fallback por si falla el video */
 }
 
 /* --- Video de fondo --- */
@@ -25,7 +26,8 @@ body {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(0.65); /* Oscurece ligeramente el video para mejorar contraste */
+  filter: brightness(0.65);
+  /* Oscurece ligeramente el video para mejorar contraste */
 }
 
 /* --- Navbar Superior --- */
@@ -39,10 +41,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  
+
   /* Azul brillante exacto de la imagen */
-  background-color: rgba(23, 123, 204, 0.95); /* O #177bcc si lo quieres 100% sólido */
-  
+  background-color: rgba(23, 123, 204, 0.95);
+  /* O #177bcc si lo quieres 100% sólido */
+
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-bottom: 3px solid #B69D54;
@@ -126,7 +129,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 110px; /* Compensación por la navbar fija */
+  margin-top: 110px;
+  /* Compensación por la navbar fija */
   padding: 20px;
 }
 
@@ -149,7 +153,7 @@ body {
   text-align: center;
   transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   transform-origin: center center;
-  left: calc(50% - 60px); 
+  left: calc(50% - 60px);
   top: calc(50% - 60px);
 }
 
@@ -258,47 +262,49 @@ body {
    ESTILOS RESPONSIVOS PARA TELÉFONOS (MÓVILES)
    ========================================== */
 @media (max-width: 768px) {
-    /* 1. Fuerza que la barra se divida en filas verticalmente */
-    .navbar {
-        flex-direction: column !important;
-        padding: 12px 10px !important;
-        gap: 12px !important;
-        min-height: auto !important;
-    }
 
-    /* 2. Reduce y alinea el logo con el título */
-    .logo, .brand-link {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 10px !important;
-    }
+  /* 1. Fuerza que la barra se divida en filas verticalmente */
+  .navbar {
+    flex-direction: column !important;
+    padding: 12px 10px !important;
+    gap: 12px !important;
+    min-height: auto !important;
+  }
 
-    .logito {
-        height: 45px !important;
-        width: 45px !important;
-    }
+  /* 2. Reduce y alinea el logo con el título */
+  .logo,
+  .brand-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
 
-    /* 3. Tamaño del título en una sola línea */
-    .navbar h1,
-    .titulo-navbar {
-        font-size: 1.2rem !important;
-        margin: 0 !important;
-        white-space: nowrap !important;
-    }
+  .logito {
+    height: 45px !important;
+    width: 45px !important;
+  }
 
-    /* 4. Acomoda los botones abajo bien centrados */
-    .nav-links {
-        width: 100% !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 8px !important;
-    }
+  /* 3. Tamaño del título en una sola línea */
+  .navbar h1,
+  .titulo-navbar {
+    font-size: 1.2rem !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
 
-    /* 5. Tamaño compacto de los botones */
-    .boton {
-        padding: 6px 14px !important;
-        font-size: 13px !important;
-    }
+  /* 4. Acomoda los botones abajo bien centrados */
+  .nav-links {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  /* 5. Tamaño compacto de los botones */
+  .boton {
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+  }
 }

@@ -8,10 +8,12 @@
     font-family: 'Poppins', Arial, sans-serif;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita cualquier barra de desplazamiento horizontal */
+    overflow-x: hidden;
+    /* Evita cualquier barra de desplazamiento horizontal */
 }
 
 body {
@@ -83,7 +85,8 @@ body {
 .navbar h1,
 .titulo-navbar {
     color: azure;
-    font-size: clamp(1.2rem, 2.2vw, 1.8rem); /* Tamaño dinámico adaptable */
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+    /* Tamaño dinámico adaptable */
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     white-space: nowrap;
@@ -263,6 +266,7 @@ body {
 
 
 @media (max-width: 768px) {
+
     /* 1. Fuerza que la barra se divida en filas verticalmente */
     .navbar {
         flex-direction: column !important;
@@ -272,7 +276,8 @@ body {
     }
 
     /* 2. Reduce y alinea el logo con el título */
-    .logo, .brand-link {
+    .logo,
+    .brand-link {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;

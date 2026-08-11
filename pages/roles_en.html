@@ -1,56 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rotación de Equipo Circular</title>
-  <link rel="stylesheet" href="../static/css/rol.css">
-</head>
-<body>
 
-  <!-- Video de Fondo -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotación de Equipo Circular</title>
+  <link rel="stylesheet" href="../static/css/rol.css" />
+</head>
+
+<body>
   <video autoplay loop muted playsinline class="video-fondo">
-    <source src="../static/videos/Fondo tecnológico en 4K (1).mp4" type="video/mp4">
+    <source src="../static/videos/Fondo tecnológico en 4K (1).mp4" type="video/mp4" />
     Tu navegador no soporta videos HTML5.
   </video>
 
-  <!-- Navbar Superior -->
-<nav class="navbar">
-  <!-- El logo y título te llevan al Inicio al hacer clic -->
-  <a href="../index.html" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
-    <div class="logo">
-      <img src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png" alt="Aula Vanguardia Logo" class="logito" />
+  <nav class="navbar">
+    <a href="../index.html" style="
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          gap: 15px;
+        ">
+      <div class="logo">
+        <img src="../static/images/Gemini_Generated_Image_xp5fd9xp5fd9xp5f.png" alt="Aula Vanguardia Logo"
+          class="logito" />
+      </div>
+      <h1 style="color: azure; font-size: 50px; margin: 0">
+        Aula Vanguardia
+      </h1>
+    </a>
+
+    <div class="nav-links">
+      <a onclick="home()" href="en.html" class="boton">Homepages</a>
+      <a onclick="solucionesEn()" href="soluciones_en.html" class="boton">Solutions</a>
+      <a onclick="ProblematicaEn()" href="problema_en.html" class="boton">Issues</a>
+      <a onclick="cambioEspanol()" href="roles_es.html" class="boton">Spanish</a>
     </div>
-    <h1 style="color: azure; font-size: 50px; margin: 0;">Aula Vanguardia</h1>
-  </a>
+  </nav>
 
-  <!-- Tus 4 botones se quedan tal cual a la derecha -->
-  <div class="nav-links">
-    <a onclick="home()" href="en.html" class="boton">Homepages</a>
-    <a onclick="solucionesEn()" href="soluciones_en.html" class="boton">Solutions</a>
-    <a onclick="ProblematicaEn()" href="problema_en.html" class="boton">Issues</a>
-    <a onclick="rolesEn()" href="roles_es.html" class="boton">Spanish</a>
-  </div>
-</nav>
-
-  <!-- Contenedor Principal del Círculo -->
   <main class="main-container">
     <div class="team-circle" id="teamCircle">
-      
-      <!-- Botón de rotación en el centro -->
       <button class="rotate-btn" id="rotateBtn" aria-label="Rotar personas">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M23 4v6h-6"></path>
           <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
         </svg>
       </button>
-
     </div>
 
-    <!-- Botón principal de acción -->
     <button class="action-btn" id="actionBtn">ROTATE PEOPLE</button>
   </main>
 
   <script src="../static/js/rol.js"></script>
 </body>
+
 </html>

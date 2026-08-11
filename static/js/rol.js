@@ -1,32 +1,32 @@
 console.log("Conexión...");
 //español
 function cambioIngles() {
-    alert("Traducido al inglés \n(Translated to English)");
+  alert("Traducido al inglés \n(Translated to English)");
 }
 function Problematica() {
-    alert("Cargando la problematica...")
+  alert("Cargando la problematica...")
 }
 function soluciones() {
-    alert("Cargando las soluciones...")
+  alert("Cargando las soluciones...")
 }
 function cambioIngles() {
-    alert("Translating to English...");
+  alert("Translating to English...");
 }
 function inicio() {
-    alert("Viajando al inicio...")
+  alert("Viajando al inicio...")
 }
 //Ingles
 function cambioEspanol() {
-    alert("Cambiado a español \n(Switched to Spanish)");
+  alert("Cambiado a español \n(Switched to Spanish)");
 }
 function ProblematicaEn() {
-    alert("Loading the problem statement...")
+  alert("Loading the problem statement...")
 }
 function solucionesEn() {
-    alert("Loading the solutions...")
+  alert("Loading the solutions...")
 }
 function home() {
-    alert("Traveling at the Beginning")
+  alert("Traveling at the Beginning")
 }
 
 
@@ -59,7 +59,7 @@ function renderTeam() {
   teamMembers.forEach((member, index) => {
     // Calcular el ángulo para este miembro
     const angle = (INITIAL_ANGLE + (index * 360) / TOTAL_MEMBERS) * (Math.PI / 180);
-    
+
     // Calcular la posición X e Y relativa al centro
     const x = Math.cos(angle) * CIRCLE_RADIUS;
     const y = Math.sin(angle) * CIRCLE_RADIUS;
@@ -67,7 +67,7 @@ function renderTeam() {
     // Crear la tarjeta (member-card)
     const card = document.createElement("div");
     card.classList.add("member-card");
-    
+
     // Posicionar la tarjeta (JS se encarga del posicionamiento circular)
     card.style.transform = `translate(${x}px, ${y}px)`;
 
@@ -90,7 +90,7 @@ function rotateTeam() {
   // Sacar el primer miembro y ponerlo al final (Rotación Clockwise)
   const firstMember = teamMembers.shift();
   teamMembers.push(firstMember);
-  
+
   // Volver a renderizar
   renderTeam();
 }
