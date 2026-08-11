@@ -13,11 +13,11 @@ function soluciones() {
 function roles() {
     alert("Cargando los roles...")
 }
-function cambioIngles() {
-    alert("Translating to English...");
-}
 function inicio() {
     alert("Viajando al inicio...")
+}
+function video() {
+    alert("Cargando el video...")
 }
 //Ingles
 function cambioEspanol() {
@@ -35,4 +35,6 @@ function rolesEn() {
 function home() {
     alert("Traveling at the Beginning")
 }
-
+function videoEn() {
+    alert("Loading the video...")
+}

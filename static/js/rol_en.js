@@ -1,4 +1,3 @@
-console.log("Conexión...");
 //español
 function cambioIngles() {
   alert("Traducido al inglés \n(Translated to English)");
@@ -34,8 +33,6 @@ function home() {
 function videoEn() {
     alert("Loading the video...")
 }
-
-
 // 1. Datos de los miembros (Asegúrate de tener estas imágenes en images/)
 let teamMembers = [
   { name: "Cesar ", role: "Lider", img: "images/", color: "#007bff" },     // Azul
