@@ -312,3 +312,56 @@ body {
         font-size: 13px !important;
     }
 }
+
+/* --- Estilos para la caja flotante del menú desplegable --- */
+.dropdown-menu {
+  background-color: #0d1b2a !important; /* Fondo azul muy oscuro */
+  border: 1px solid #B69D54 !important;  /* Borde dorado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+  padding: 8px 0 !important;
+}
+
+/* --- Estilos para cada texto/opción dentro del menú --- */
+.dropdown-item {
+  color: #ffffff !important;            /* Texto blanco */
+  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* --- Efecto cuando pasas el cursor (Hover) o seleccionas --- */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #B69D54 !important; /* Fondo dorado al pasar el ratón */
+  color: #000000 !important;            /* Texto negro para alto contraste */
+}
+
+/* Estilos para que el botón 'Seleccionar Opción' tenga el diseño dorado */
+#dropdownMenuButton {
+  background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 25px !important;
+  padding: 10px 24px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Efecto al pasar el cursor (Hover) y al hacer clic */
+#dropdownMenuButton:hover,
+#dropdownMenuButton:focus,
+#dropdownMenuButton:active,
+.show > #dropdownMenuButton {
+  background: linear-gradient(135deg, #967f3f 0%, #78642e 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* Opcional: Cambiar el color de la flechita del dropdown a blanco */
+#dropdownMenuButton::after {
+  border-top-color: #ffffff !important;
+}

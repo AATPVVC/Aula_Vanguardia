@@ -1,82 +1,119 @@
-//español
-function cambioIngles() {
-  alert("Traducido al inglés \n(Translated to English)");
-}
-function Problematica() {
-  alert("Cargando la problematica...")
-}
-function soluciones() {
-  alert("Cargando las soluciones...")
-}
-function cambioIngles() {
-  alert("Translating to English...");
-}
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==========================================
+  // 1. EVENTOS DE BOOTSTRAP PARA EL MENU
+  // ==========================================
+  const dropdownElement = document.getElementById("miDropdownContainer");
+
+  if (dropdownElement) {
+    // Se ejecuta al momento de hacer clic para abrir
+    dropdownElement.addEventListener("show.bs.dropdown", () => {
+      console.log("El menú desplegable se está abriendo...");
+    });
+
+    // Se ejecuta cuando la animación de apertura finaliza
+    dropdownElement.addEventListener("shown.bs.dropdown", () => {
+      console.log("El menú desplegable está totalmente abierto.");
+    });
+
+    // Se ejecuta al hacer clic para cerrar
+    dropdownElement.addEventListener("hide.bs.dropdown", () => {
+      console.log("El menú desplegable se está cerrando...");
+    });
+
+    // Se ejecuta cuando termina de cerrarse
+    dropdownElement.addEventListener("hidden.bs.dropdown", () => {
+      console.log("El menú desplegable está cerrado.");
+    });
+  }
+
+});
+
+// ==========================================
+// 2. FUNCIONES DE CADA OPCIÓN DEL MENÚ
+// ==========================================
 function inicio() {
-  alert("Viajando al inicio...")
+  console.log("Navegando a la página de Inicio...");
 }
+
+function soluciones() {
+  console.log("Navegando a la página de Soluciones...");
+}
+
+function Problematica() {
+  console.log("Navegando a la página de Problemas...");
+}
+
 function video() {
-    alert("Cargando el video...")
+  console.log("Navegando a la página de Video...");
 }
-//Ingles
-function cambioEspanol() {
-  alert("Cambiado a español \n(Switched to Spanish)");
+
+function cambioIngles() {
+  console.log("Cambiando el idioma a Inglés...");
 }
-function ProblematicaEn() {
-  alert("Loading the problem statement...")
-}
-function solucionesEn() {
-  alert("Loading the solutions...")
-}
-function home() {
-  alert("Traveling at the Beginning")
-}
-function videoEn() {
-    alert("Loading the video...")
-}
-// 1. Datos de los miembros (Asegúrate de tener estas imágenes en images/)
+
+
+// Arreglo con la información de los miembros
 let teamMembers = [
-  { name: "Cesar ", role: "Lider", img: "images/", color: "#007bff" },     // Azul
-  { name: "Angel ", role: "Frontend", img: "images/", color: "#28a745" }, // Verde
-  { name: "Diego ", role: "Backend", img: "images/", color: "#dc3545" },    // Rojo
-  { name: "Angelo ", role: "Project Manager", img: "images/", color: "#ffc107" }, // Amarillo
-  { name: "Gabriel ", role: "QA", img: "images/", color: "#fd7e14" }       // Naranja
+  { name: "Cesar Arzola", role: "Diseñadora UI/UX" },
+  { name: "Angel Alvarez", role: "Desarrollador Frontend" },
+  { name: "Gabriel Naranjo", role: "Desarrolladora Backend" },
+  { name: "Angelo Pomasongo", role: "Project Manager" },
+  { name: "Diego Velazquez", role: "Especialista QA" }
 ];
 
-const teamCircle = document.getElementById("teamCircle");
-const actionBtn = document.getElementById("actionBtn");
-const rotateBtn = document.getElementById("rotateBtn");
+const teamCircle = document.getElementById("teamCircle") || document.getElementById("teamGrid");
+const actionBtn = document.getElementById("btnChange") || document.getElementById("actionBtn");
 
-// 2. Parámetros del círculo (Radio y offsets)
-const TOTAL_MEMBERS = teamMembers.length;
-const CIRCLE_RADIUS = 220; // Radio del círculo en píxeles
-const INITIAL_ANGLE = -90; // Ángulo inicial (en grados) para el primer miembro (arriba)
+// Calcula dinámicamente el radio según la pantalla
+function obtenerRadio() {
+  const width = window.innerWidth;
+  if (width <= 480) {
+    return 92;  // Celulares pequeños (evita que se corte en los bordes)
+  } else if (width <= 768) {
+    return 120; // Tablets y pantallas intermedias
+  } else {
+    return 180; // Pantallas grandes (PC/Laptops)
+  }
+}
 
-// 3. Función para renderizar las tarjetas y posicionarlas circularmente
-function renderTeam() {
-  // Guardar una referencia al botón central para no borrarlo
-  const centralBtn = rotateBtn.cloneNode(true);
-  teamCircle.innerHTML = ""; // Limpiar
-  teamCircle.appendChild(centralBtn); // Volver a añadir el botón central
+function renderCards() {
+  if (!teamCircle) return;
+  teamCircle.innerHTML = ""; 
+
+  // Crear botón giratorio central si no existe
+  if (!document.getElementById("rotateBtn")) {
+    const btnCenter = document.createElement("button");
+    btnCenter.className = "rotate-btn";
+    btnCenter.id = "rotateBtn";
+    btnCenter.setAttribute("aria-label", "Rotar personas");
+    btnCenter.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M23 4v6h-6"></path>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+      </svg>
+    `;
+    btnCenter.addEventListener("click", rotateTeam);
+    teamCircle.appendChild(btnCenter);
+  }
+
+  const total = teamMembers.length;
+  const radioActual = obtenerRadio();
 
   teamMembers.forEach((member, index) => {
-    // Calcular el ángulo para este miembro
-    const angle = (INITIAL_ANGLE + (index * 360) / TOTAL_MEMBERS) * (Math.PI / 180);
+    const angulo = (index / total) * (2 * Math.PI) - (Math.PI / 2);
 
-    // Calcular la posición X e Y relativa al centro
-    const x = Math.cos(angle) * CIRCLE_RADIUS;
-    const y = Math.sin(angle) * CIRCLE_RADIUS;
+    const x = Math.round(Math.cos(angulo) * radioActual);
+    const y = Math.round(Math.sin(angulo) * radioActual);
 
-    // Crear la tarjeta (member-card)
     const card = document.createElement("div");
     card.classList.add("member-card");
-
-    // Posicionar la tarjeta (JS se encarga del posicionamiento circular)
-    card.style.transform = `translate(${x}px, ${y}px)`;
+    
+    // Centrado matemático usando translate
+    card.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
 
     card.innerHTML = `
-      <div class="photo-container" style="border: 4px solid ${member.color};">
-        <img src="${member.img}" alt="${member.name}">
-      </div>
+      <div class="photo-container"></div>
       <div class="member-info">
         <p class="name">${member.name}</p>
         <p class="role">${member.role}</p>
@@ -87,20 +124,21 @@ function renderTeam() {
   });
 }
 
-// 4. Función para rotar la lista (y re-renderizar)
+// Rotación de posiciones
 function rotateTeam() {
-  // Sacar el primer miembro y ponerlo al final (Rotación Clockwise)
   const firstMember = teamMembers.shift();
   teamMembers.push(firstMember);
-
-  // Volver a renderizar
-  renderTeam();
+  renderCards();
 }
 
-// 5. Eventos de los botones
-actionBtn.addEventListener("click", rotateTeam);
-// El botón central también rotará si se hace clic
-rotateBtn.addEventListener("click", rotateTeam);
+if (actionBtn) {
+  actionBtn.addEventListener("click", rotateTeam);
+}
 
-// 6. Carga inicial
-renderTeam();
+// Recalcula al cambiar tamaño de pantalla
+window.addEventListener("resize", renderCards);
+document.addEventListener("DOMContentLoaded", renderCards);
+
+function cambioIngles() {
+  window.location.href = 'en.html';
+}

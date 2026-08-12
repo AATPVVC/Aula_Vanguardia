@@ -1,4 +1,4 @@
-/* --- Reseteo básico --- */
+/* --- Reseteo y prevención de scroll horizontal --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,32 +6,32 @@
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+html, body {
+  max-width: 100vw;
   overflow-x: hidden;
-  background-color: #030813;
-  /* Fondo fallback por si falla el video */
 }
 
-/* --- Video de fondo --- */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #030813;
+}
+
 .video-fondo {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
   filter: brightness(0.65);
-  /* Oscurece ligeramente el video para mejorar contraste */
 }
 
-/* --- Navbar Superior --- */
-
+/* --- Navbar (PC) --- */
 .navbar {
   position: fixed;
   top: 0;
@@ -41,11 +41,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-
-  /* Azul brillante exacto de la imagen */
   background-color: rgba(23, 123, 204, 0.95);
-  /* O #177bcc si lo quieres 100% sólido */
-
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-bottom: 3px solid #B69D54;
@@ -53,17 +49,10 @@ body {
   min-height: 90px;
 }
 
-/* Contenedor agrupado para Logo + Título */
 .brand {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  z-index: 2;
 }
 
 .logito {
@@ -81,8 +70,6 @@ body {
 }
 
 .navbar-title {
-  position: static;
-  transform: none;
   color: azure;
   font-size: 2rem;
   font-weight: 700;
@@ -90,12 +77,10 @@ body {
   white-space: nowrap;
 }
 
-/* --- Botones de Navegación --- */
 .nav-links {
   display: flex;
   gap: 15px;
   align-items: center;
-  z-index: 2;
 }
 
 .boton {
@@ -120,89 +105,80 @@ body {
   box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5);
 }
 
-/* --- Contenedor Principal --- */
+/* --- Contenedor Principal (PC) --- */
 .main-container {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 110px;
-  /* Compensación por la navbar fija */
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+  margin-top: 90px;
   padding: 20px;
 }
 
-/* --- El Círculo Contenedor --- */
-.team-circle {
+/* Contenedor circular */
+#teamCircle, .team-circle {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  max-width: 420px;
+  height: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-/* --- Las Tarjetas Individuales (Miembros) --- */
+/* Tarjeta individual */
 .member-card {
   position: absolute;
-  width: 120px;
+  top: 50%;
+  left: 50%;
+  width: 110px;
   text-align: center;
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-  transform-origin: center center;
-  left: calc(50% - 60px);
-  top: calc(50% - 60px);
+  transition: transform 0.5s ease-in-out;
+  z-index: 2;
 }
 
-/* --- La foto circular --- */
+/* Círculo dorado vacio */
 .photo-container {
-  position: relative;
-  width: 85px;
-  height: 85px;
-  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 6px auto;
   border-radius: 50%;
-  padding: 3px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  background: #111;
-}
-
-.photo-container img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-/* --- Texto con alto contraste sobre video --- */
-.member-info {
-  margin-top: 8px;
+  background: #111111;
+  border: 2px solid #B69D54;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
 }
 
 .name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #ffffff;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  line-height: 1.2;
 }
 
 .role {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: #d1d5db;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  line-height: 1.2;
 }
 
-/* --- Botón Central --- */
+/* Botón giratorio central */
 .rotate-btn {
   position: absolute;
-  width: 55px;
-  height: 55px;
-  background: rgba(255, 255, 255, 0.9);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
   border: none;
   border-radius: 50%;
   display: flex;
@@ -211,28 +187,20 @@ body {
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  transition: transform 0.2s, background-color 0.2s;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: transform 0.2s;
 }
 
 .rotate-btn:hover {
-  background-color: #ffffff;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-.rotate-btn:active {
-  transform: translate(-50%, -50%) scale(0.95);
-}
-
 .rotate-btn svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   stroke: #111;
 }
 
-/* --- Botón de Acción Principal --- */
+/* Botón principal inferior */
 .action-btn {
   background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
   color: white;
@@ -245,102 +213,142 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 0 15px rgba(182, 157, 84, 0.4);
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .action-btn:hover {
-  background: linear-gradient(135deg, #967f3f 0%, #78642e 100%);
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(182, 157, 84, 0.6);
 }
 
-.action-btn:active {
-  transform: scale(0.98);
+/* --- Estilos para la caja flotante del menú desplegable --- */
+.dropdown-menu {
+  background-color: #0d1b2a !important; /* Fondo azul muy oscuro */
+  border: 1px solid #B69D54 !important;  /* Borde dorado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+  padding: 8px 0 !important;
+}
+
+/* --- Estilos para cada texto/opción dentro del menú --- */
+.dropdown-item {
+  color: #ffffff !important;            /* Texto blanco */
+  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* --- Efecto cuando pasas el cursor (Hover) o seleccionas --- */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #B69D54 !important; /* Fondo dorado al pasar el ratón */
+  color: #000000 !important;            /* Texto negro para alto contraste */
+}
+
+/* Estilos para que el botón 'Seleccionar Opción' tenga el diseño dorado */
+#dropdownMenuButton {
+  background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 25px !important;
+  padding: 10px 24px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Efecto al pasar el cursor (Hover) y al hacer clic */
+#dropdownMenuButton:hover,
+#dropdownMenuButton:focus,
+#dropdownMenuButton:active,
+.show > #dropdownMenuButton {
+  background: linear-gradient(135deg, #967f3f 0%, #78642e 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 15px rgba(182, 157, 84, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* Opcional: Cambiar el color de la flechita del dropdown a blanco */
+#dropdownMenuButton::after {
+  border-top-color: #ffffff !important;
 }
 
 /* ==========================================
-   ESTILOS RESPONSIVOS PARA TELÉFONOS (MÓVILES)
+   ESTILOS RESPONSIVOS (TABLETS Y TELÉFONOS)
    ========================================== */
 @media (max-width: 768px) {
-
-  /* 1. Fuerza que la barra se divida en filas verticalmente */
   .navbar {
     flex-direction: column !important;
     padding: 12px 10px !important;
-    gap: 12px !important;
+    gap: 10px !important;
     min-height: auto !important;
   }
 
-  /* 2. Reduce y alinea el logo con el título */
-  .logo,
-  .brand-link {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-  }
-
   .logito {
-    height: 45px !important;
-    width: 45px !important;
+    height: 42px !important;
+    width: 42px !important;
   }
 
-  /* 3. Tamaño del título en una sola línea */
-  .navbar h1,
-  .titulo-navbar {
+  .navbar-title {
     font-size: 1.2rem !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
   }
 
-  /* 4. Acomoda los botones abajo bien centrados */
   .nav-links {
     width: 100% !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 8px !important;
   }
 
-  /* 5. Tamaño compacto de los botones */
   .boton {
     padding: 6px 14px !important;
     font-size: 13px !important;
   }
-}
 
+  .main-container {
+    margin-top: 140px !important;
+    padding: 10px 5px !important;
+    min-height: auto !important;
+  }
 
-.dropdown-menu {
-  list-style: none !important; /* Elimina los puntos por completo */
-  padding: 8px 0 !important;
-  margin-top: 5px !important;
-  background-color: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.15) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-}
+  #teamCircle, .team-circle {
+    max-width: 260px !important;
+    height: 260px !important;
+    margin-bottom: 50px !important;
+  }
 
-/* Limpia los 'li' dentro del desplegable */
-.dropdown-menu li {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+  .member-card {
+    width: 75px !important;
+  }
 
-/* 3. Estilo del texto de las opciones (quita el azul/morado de enlace nativo) */
-.dropdown-item {
-  color: #212529 !important; /* Texto oscuro y limpio */
-  text-decoration: none !important; /* Quita el subrayado */
-  padding: 8px 20px !important;
-  font-size: 15px;
-  font-weight: 500;
-  display: block;
-  width: 100%;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
+  .photo-container {
+    width: 38px !important;
+    height: 38px !important;
+    border-width: 2px !important;
+  }
 
-/* 4. Efecto al pasar el cursor sobre cada opción */
-.dropdown-item:hover {
-  background-color: #f1f3f5 !important; /* Gris claro al pasar el ratón */
-  color: #198754 !important; /* Cambia a verde verde como el botón */
+  .name {
+    font-size: 0.68rem !important;
+    word-wrap: break-word;
+  }
+
+  .role {
+    font-size: 0.60rem !important;
+    word-wrap: break-word;
+  }
+
+  .rotate-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .rotate-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .action-btn {
+    padding: 10px 20px !important;
+    font-size: 0.8rem !important;
+  }
 }
