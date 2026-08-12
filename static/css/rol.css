@@ -35,7 +35,7 @@ body {
 }
 
 /* ==========================================
-   NAVBAR
+   NAVBAR Y LOGO
    ========================================== */
 .navbar {
     position: relative;
@@ -121,20 +121,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 100px);
-    padding: 20px;
+    min-height: calc(100vh - 110px);
+    padding: 40px 20px;
+    position: relative;
 }
 
 .team-circle {
     position: relative;
-    width: 450px;
-    height: 450px;
+    width: 520px;
+    height: 520px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
 }
 
-/* Tarjeta individual (puntero de ratón interactivo) */
+/* Tarjeta individual */
 .member-card {
     position: absolute;
     top: 50%;
@@ -145,43 +147,62 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.4s ease, filter 0.3s ease;
-    width: 140px;
+    width: 150px;
+    z-index: 2;
 }
 
 .member-card:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.25);
 }
 
 .photo-container {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    background-color: #111;
+    background-color: #0b1326;
     border: 3px solid #B69D54;
-    box-shadow: 0 0 15px rgba(182, 157, 84, 0.4);
-    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba(182, 157, 84, 0.5);
+    margin-bottom: 6px;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .member-card:hover .photo-container {
     transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(182, 157, 84, 0.9);
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    pointer-events: none;
 }
 
 .member-info .name {
     color: #ffffff;
     font-weight: 700;
     font-size: 0.95rem;
-    margin-bottom: 2px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9), 0px 0px 8px rgba(0, 0, 0, 0.9);
 }
 
 .member-info .role {
-    color: #ccc;
+    color: #d1d5db;
     font-size: 0.8rem;
+    margin-top: 3px;
+    line-height: 1.1;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
-/* Botón central giratorio */
+/* Botón giratorio central */
 .rotate-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -191,13 +212,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
     z-index: 5;
     transition: transform 0.3s ease;
 }
 
 .rotate-btn:hover {
-    transform: rotate(180deg) scale(1.1);
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
 }
 
 .rotate-btn svg {
@@ -207,25 +228,27 @@ body {
 }
 
 .action-btn {
-    margin-top: 25px;
-    padding: 12px 30px;
+    margin-top: 30px;
+    padding: 12px 36px;
     background: linear-gradient(135deg, #B69D54 0%, #967f3f 100%);
     color: #ffffff;
     font-weight: 700;
-    border: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(182, 157, 84, 0.5);
+    box-shadow: 0 6px 20px rgba(182, 157, 84, 0.6);
 }
 
 /* ==========================================
-   VENTANA EMERGENTE (MODAL)
+   VENTANA EMERGENTE (MODAL AL PASAR EL CURSOR)
    ========================================== */
 .modal-custom {
     display: none;
@@ -234,59 +257,87 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    pointer-events: none; /* Permite mover libremente el mouse */
+    transition: opacity 0.3s ease;
 }
 
 .modal-content-custom {
     background: #0d1b2a;
     border: 2px solid #B69D54;
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
     width: 90%;
-    max-width: 400px;
+    max-width: 380px;
     text-align: center;
     color: #ffffff;
     position: relative;
-    box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-content-custom h2 {
     color: #fceea7;
     margin-bottom: 5px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .modal-content-custom h4 {
     color: #177bcc;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
+    margin-bottom: 12px;
+    font-size: 1rem;
 }
 
 .modal-content-custom p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.4;
     color: #e0e0e0;
+    margin: 0;
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
     cursor: pointer;
     color: #aaaaaa;
 }
 
-.close-btn:hover {
-    color: #ffffff;
-}
-
 @media (max-width: 768px) {
     .team-circle {
-        width: 320px;
-        height: 320px;
+        width: 380px;
+        height: 380px;
+    }
+
+    .photo-container {
+        width: 75px;
+        height: 75px;
+    }
+
+    .member-card {
+        width: 120px;
+    }
+
+    .member-info .name {
+        font-size: 0.85rem;
+    }
+
+    .member-info .role {
+        font-size: 0.75rem;
     }
 }

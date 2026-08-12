@@ -29,28 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ==========================================
-// 2. FUNCIONES DE CADA OPCIÓN DEL MENÚ
-// ==========================================
-function inicio() {
-  console.log("Navegando a la página de Inicio...");
-}
 
-function soluciones() {
-  console.log("Navegando a la página de Soluciones...");
-}
-
-function Problematica() {
-  console.log("Navegando a la página de Problemas...");
-}
-
-function video() {
-  console.log("Navegando a la página de Video...");
-}
-
-function cambioIngles() {
-  console.log("Cambiando el idioma a Inglés...");
-}
 
 
 // Arreglo con la información de los miembros

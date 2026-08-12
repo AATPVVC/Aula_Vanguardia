@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // 2. RENDEREIZADO Y LOGICA DEL EQUIPO
+  // 2. RENDERIZADO Y LÓGICA DEL EQUIPO
   // ==========================================
   renderCards();
 });
 
-// Arreglo con la información detallada de cada miembro
+// Información detallada de cada integrante
 let teamMembers = [
   { 
     name: "Cesar Arzola", 
@@ -45,24 +45,24 @@ let teamMembers = [
   }
 ];
 
-const teamCircle = document.getElementById("teamCircle") || document.getElementById("teamGrid");
-const actionBtn = document.getElementById("btnChange") || document.getElementById("actionBtn");
+const teamCircle = document.getElementById("teamCircle");
+const actionBtn = document.getElementById("actionBtn");
 
 function obtenerRadio() {
   const width = window.innerWidth;
   if (width <= 480) {
-    return 100;
+    return 120; // Celulares
   } else if (width <= 768) {
-    return 130;
+    return 145; // Tablets
   } else {
-    return 180;
+    return 210; // Laptops / Pantallas Grandes (Mayor separación de tarjetas)
   }
 }
 
 function renderCards() {
   if (!teamCircle) return;
 
-  // Mantener únicamente el botón giratorio central
+  // Limpiar el contenedor sin eliminar el botón rotador central
   teamCircle.innerHTML = "";
 
   const btnCenter = document.createElement("button");
@@ -99,9 +99,14 @@ function renderCards() {
       </div>
     `;
 
-    // Evento para desplegar información en la ventana modal al hacer clic en el círculo/tarjeta
-    card.addEventListener("click", () => {
+    // ACTIVACIÓN AL PASAR EL CURSOR (HOVER)
+    card.addEventListener("mouseenter", () => {
       mostrarModal(member.name, member.role, member.desc);
+    });
+
+    // OCULTAR AL RETIRAR EL CURSOR
+    card.addEventListener("mouseleave", () => {
+      ocultarModal();
     });
 
     teamCircle.appendChild(card);
@@ -119,7 +124,7 @@ if (actionBtn) {
 }
 
 // ==========================================
-// 3. FUNCIONES DE LA VENTANA EMERGENTE (MODAL)
+// 3. CONTROL DE LA VENTANA EMERGENTE (MODAL)
 // ==========================================
 function mostrarModal(nombre, rol, descripcion) {
   const modal = document.getElementById("modalInfo");
@@ -132,27 +137,14 @@ function mostrarModal(nombre, rol, descripcion) {
   modal.style.display = "flex";
 }
 
-const closeModalBtn = document.getElementById("closeModal");
-if (closeModalBtn) {
-  closeModalBtn.addEventListener("click", () => {
-    document.getElementById("modalInfo").style.display = "none";
-  });
-}
-
-window.addEventListener("click", (e) => {
+function ocultarModal() {
   const modal = document.getElementById("modalInfo");
-  if (e.target === modal) {
+  if (modal) {
     modal.style.display = "none";
   }
-});
+}
 
-// Redimensionar responsivamente
+// Redimensionamiento adaptativo en pantalla
 window.addEventListener("resize", renderCards);
 
-// Funciones de navegación
-function inicio() { console.log("Navegando a Inicio..."); }
-function soluciones() { console.log("Navegando a Soluciones..."); }
-function Problematica() { console.log("Navegando a Problemas..."); }
-function video() { console.log("Navegando a Video..."); }
-function cambioIngles() { window.location.href = 'en.html'; }
-function cambioEspanol() { window.location.href = 'roles_es.html'; }
+// Funciones para la barra de navegación
